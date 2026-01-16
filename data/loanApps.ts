@@ -1,0 +1,272 @@
+export interface LoanApp {
+  id: string;
+  name: string;
+  logo: string;
+  minAmount: number;
+  maxAmount: number;
+  interestRate: string;
+  interestRateMonthly: number; // for calculations
+  loanTerm: string;
+  maxTermDays: number;
+  processingTime: string;
+  requirements: string[];
+  pros: string[];
+  cons: string[];
+  downloadLink: string;
+  playStoreRating: number;
+  crbReporting: boolean;
+  description: string;
+  category: 'mobile-money' | 'bank' | 'fintech';
+}
+
+export const loanApps: LoanApp[] = [
+  {
+    id: 'mshwari',
+    name: 'M-Shwari',
+    logo: '🏦',
+    minAmount: 100,
+    maxAmount: 50000,
+    interestRate: '7.5% per month',
+    interestRateMonthly: 7.5,
+    loanTerm: '30 days',
+    maxTermDays: 30,
+    processingTime: 'Instant',
+    requirements: ['Safaricom line', 'Active M-Pesa', '6 months usage history'],
+    pros: ['No app download needed', 'Instant disbursement', 'Builds credit limit over time'],
+    cons: ['30-day term only', 'High interest rate', 'CRB listing for default'],
+    downloadLink: 'https://www.safaricom.co.ke/personal/m-pesa/do-more-with-m-pesa/m-shwari',
+    playStoreRating: 4.2,
+    crbReporting: true,
+    description: 'M-Shwari is a savings and loan product by Safaricom and NCBA Bank, accessible via M-Pesa menu.',
+    category: 'mobile-money'
+  },
+  {
+    id: 'fuliza',
+    name: 'Fuliza',
+    logo: '📱',
+    minAmount: 100,
+    maxAmount: 70000,
+    interestRate: '1% daily (capped)',
+    interestRateMonthly: 30,
+    loanTerm: 'Flexible',
+    maxTermDays: 30,
+    processingTime: 'Instant',
+    requirements: ['Safaricom line', 'Active M-Pesa', 'Good M-Pesa history'],
+    pros: ['Overdraft style - use only what you need', 'No fixed repayment date', 'Auto-deducts from incoming M-Pesa'],
+    cons: ['Daily fees add up fast', 'Can become a debt trap', 'Reduces available M-Pesa balance'],
+    downloadLink: 'https://www.safaricom.co.ke/personal/m-pesa/do-more-with-m-pesa/fuliza',
+    playStoreRating: 4.0,
+    crbReporting: true,
+    description: 'Fuliza is an overdraft facility that lets you complete M-Pesa transactions even with insufficient funds.',
+    category: 'mobile-money'
+  },
+  {
+    id: 'kcb-mpesa',
+    name: 'KCB M-Pesa',
+    logo: '🏛️',
+    minAmount: 50,
+    maxAmount: 1000000,
+    interestRate: '8.64% per month',
+    interestRateMonthly: 8.64,
+    loanTerm: '1-6 months',
+    maxTermDays: 180,
+    processingTime: 'Instant',
+    requirements: ['Safaricom line', 'National ID', 'Active M-Pesa account'],
+    pros: ['High loan limits', 'Longer repayment terms', 'Builds KCB banking relationship'],
+    cons: ['Higher interest than M-Shwari', 'Requires good credit history', 'CRB blacklisting for default'],
+    downloadLink: 'https://ke.kcbgroup.com/personal-banking/loans/kcb-m-pesa',
+    playStoreRating: 4.1,
+    crbReporting: true,
+    description: 'KCB M-Pesa offers higher loan limits and longer terms through the M-Pesa menu, backed by KCB Bank.',
+    category: 'bank'
+  },
+  {
+    id: 'tala',
+    name: 'Tala',
+    logo: '💚',
+    minAmount: 500,
+    maxAmount: 50000,
+    interestRate: '6-15% per month',
+    interestRateMonthly: 11,
+    loanTerm: '21-30 days',
+    maxTermDays: 30,
+    processingTime: '5-10 minutes',
+    requirements: ['Android phone', 'National ID', 'M-Pesa account', 'Facebook account (optional)'],
+    pros: ['No collateral needed', 'First loan often approved', 'Rewards for timely repayment'],
+    cons: ['App permissions are invasive', 'Interest can be high', 'Lower first-time limits'],
+    downloadLink: 'https://play.google.com/store/apps/details?id=com.inventureaccess.tala',
+    playStoreRating: 4.3,
+    crbReporting: true,
+    description: 'Tala is one of the most popular loan apps in Kenya, known for quick approvals and building credit over time.',
+    category: 'fintech'
+  },
+  {
+    id: 'branch',
+    name: 'Branch',
+    logo: '🌿',
+    minAmount: 250,
+    maxAmount: 70000,
+    interestRate: '4-24% per month',
+    interestRateMonthly: 14,
+    loanTerm: '4 weeks - 12 months',
+    maxTermDays: 365,
+    processingTime: '5-10 minutes',
+    requirements: ['Android/iOS phone', 'National ID', 'M-Pesa account'],
+    pros: ['Longer repayment options', 'Lower interest for good borrowers', 'Also offers savings'],
+    cons: ['High initial interest rates', 'Requires many app permissions', 'Slow limit increases'],
+    downloadLink: 'https://play.google.com/store/apps/details?id=com.branch_international.branch.branch_demo_android',
+    playStoreRating: 4.4,
+    crbReporting: true,
+    description: 'Branch offers flexible loans and savings accounts with some of the longer repayment terms among loan apps.',
+    category: 'fintech'
+  },
+  {
+    id: 'zenka',
+    name: 'Zenka',
+    logo: '💙',
+    minAmount: 500,
+    maxAmount: 30000,
+    interestRate: '9-17% per month',
+    interestRateMonthly: 13,
+    loanTerm: '21-61 days',
+    maxTermDays: 61,
+    processingTime: '5-15 minutes',
+    requirements: ['Android phone', 'National ID', 'M-Pesa account'],
+    pros: ['Reasonable first-time limits', 'Clear fee structure', 'Good customer support'],
+    cons: ['Lower maximum than competitors', 'App can be glitchy', 'Limited to Android'],
+    downloadLink: 'https://play.google.com/store/apps/details?id=com.finserve.zenka',
+    playStoreRating: 4.0,
+    crbReporting: true,
+    description: 'Zenka offers straightforward loans with transparent fees and reasonable approval rates for new borrowers.',
+    category: 'fintech'
+  },
+  {
+    id: 'timiza',
+    name: 'Timiza (Absa)',
+    logo: '🔴',
+    minAmount: 200,
+    maxAmount: 150000,
+    interestRate: '6% per month',
+    interestRateMonthly: 6,
+    loanTerm: '7-30 days',
+    maxTermDays: 30,
+    processingTime: 'Instant',
+    requirements: ['Safaricom line', 'National ID', 'M-Pesa account'],
+    pros: ['Lower interest rate', 'Backed by major bank', 'High limits for good borrowers'],
+    cons: ['Strict approval criteria', 'Requires Safaricom', 'CRB reporting'],
+    downloadLink: 'https://play.google.com/store/apps/details?id=com.absa.timiza',
+    playStoreRating: 3.8,
+    crbReporting: true,
+    description: 'Timiza by Absa Bank offers competitive rates and high loan limits for customers with good credit history.',
+    category: 'bank'
+  },
+  {
+    id: 'okash',
+    name: 'OKash',
+    logo: '🟠',
+    minAmount: 500,
+    maxAmount: 50000,
+    interestRate: '10-15% per month',
+    interestRateMonthly: 12.5,
+    loanTerm: '14-30 days',
+    maxTermDays: 30,
+    processingTime: '5-10 minutes',
+    requirements: ['Android phone', 'National ID', 'M-Pesa account', '18+ years'],
+    pros: ['Quick approval', 'Clear terms', 'Good for first-time borrowers'],
+    cons: ['Higher interest rates', 'Short repayment terms', 'Invasive app permissions'],
+    downloadLink: 'https://play.google.com/store/apps/details?id=com.opera.android.okash.kenya',
+    playStoreRating: 4.2,
+    crbReporting: true,
+    description: 'OKash by Opera offers quick loans with straightforward approval process, popular among young Kenyans.',
+    category: 'fintech'
+  },
+  {
+    id: 'hustler-fund',
+    name: 'Hustler Fund',
+    logo: '🇰🇪',
+    minAmount: 500,
+    maxAmount: 50000,
+    interestRate: '8% per annum',
+    interestRateMonthly: 0.67,
+    loanTerm: '14 days',
+    maxTermDays: 14,
+    processingTime: 'Instant',
+    requirements: ['National ID', 'Registered mobile money account', 'Kenyan citizen'],
+    pros: ['Lowest interest rate available', 'Government backed', '5% goes to savings'],
+    cons: ['Low initial limits', 'Must repay on time to increase limit', '14-day term only'],
+    downloadLink: 'https://hustlerfund.go.ke',
+    playStoreRating: 3.5,
+    crbReporting: false,
+    description: 'Government-backed fund offering affordable credit to Kenyan hustlers with the lowest interest rates in the market.',
+    category: 'mobile-money'
+  },
+  {
+    id: 'equity-eazzy',
+    name: 'Eazzy Loan (Equity)',
+    logo: '🟡',
+    minAmount: 100,
+    maxAmount: 3000000,
+    interestRate: '14% per annum',
+    interestRateMonthly: 1.17,
+    loanTerm: '1-12 months',
+    maxTermDays: 365,
+    processingTime: 'Instant',
+    requirements: ['Equity account', 'Active Eazzy Banking app', '6 months account history'],
+    pros: ['Very high limits', 'Low annual interest', 'Long repayment terms'],
+    cons: ['Requires Equity account', 'Based on account activity', 'Strict for new customers'],
+    downloadLink: 'https://play.google.com/store/apps/details?id=ke.co.equitybank',
+    playStoreRating: 4.0,
+    crbReporting: true,
+    description: 'Equity Bank\'s mobile loan product offers some of the highest limits and lowest rates for account holders.',
+    category: 'bank'
+  },
+  {
+    id: 'ipesa',
+    name: 'iPesa',
+    logo: '💜',
+    minAmount: 500,
+    maxAmount: 50000,
+    interestRate: '10-25% per month',
+    interestRateMonthly: 17.5,
+    loanTerm: '14-90 days',
+    maxTermDays: 90,
+    processingTime: '5-10 minutes',
+    requirements: ['Android phone', 'National ID', 'M-Pesa account'],
+    pros: ['Longer terms available', 'Decent limits', 'Active in rural areas'],
+    cons: ['Higher interest rates', 'Mixed reviews on customer service', 'App stability issues'],
+    downloadLink: 'https://play.google.com/store/apps/details?id=com.iotsence.ipesa',
+    playStoreRating: 3.7,
+    crbReporting: true,
+    description: 'iPesa offers medium-term loans with reasonable limits, popular in both urban and rural Kenya.',
+    category: 'fintech'
+  },
+  {
+    id: 'kashway',
+    name: 'Kashway',
+    logo: '💰',
+    minAmount: 1000,
+    maxAmount: 50000,
+    interestRate: '10-18% per month',
+    interestRateMonthly: 14,
+    loanTerm: '7-30 days',
+    maxTermDays: 30,
+    processingTime: '10-30 minutes',
+    requirements: ['Android phone', 'National ID', 'M-Pesa account', '21+ years'],
+    pros: ['Quick disbursement', 'Clear repayment schedule', 'Growing limits'],
+    cons: ['Higher minimum loan', 'Short terms only', 'Interest adds up quickly'],
+    downloadLink: 'https://play.google.com/store/apps/details?id=com.kashway.ke',
+    playStoreRating: 4.1,
+    crbReporting: true,
+    description: 'Kashway provides quick personal loans with straightforward terms and growing limits for repeat borrowers.',
+    category: 'fintech'
+  }
+];
+
+export const formatCurrency = (amount: number): string => {
+  return new Intl.NumberFormat('en-KE', {
+    style: 'currency',
+    currency: 'KES',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+};

@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-dm-sans: 'DM Sans', sans-serif;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+}
+
+body {
+  font-family: var(--font-dm-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-space-grotesk);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(30 41 59);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(71 85 105);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(100 116 139);
+}
+
+/* Range input styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  margin-top: -6px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+  transition: transform 0.15s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  background: rgb(51 65 85);
+  border-radius: 4px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+}
+
+input[type="range"]::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: rgb(51 65 85);
+  border-radius: 4px;
+}
+
+/* Table hover effect */
+table tbody tr {
+  transition: background-color 0.15s ease;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(16, 185, 129, 0.3);
+  color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.3s ease-out forwards;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Mobile menu backdrop blur fix */
+@supports (backdrop-filter: blur(8px)) {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(8px);
+  }
+}
+
+/* Touch-friendly tap targets */
+@media (hover: none) and (pointer: coarse) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
